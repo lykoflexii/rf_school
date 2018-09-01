@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -13,7 +15,7 @@ import javax.persistence.TemporalType;
 public class Etudiant implements Serializable {
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long numero;
 	private String nom;
 	private String prenom;
 	private String nomDuPere;
@@ -21,15 +23,18 @@ public class Etudiant implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateDeNaissance;
 	private String lieuDeNaissance;
-	private long telephone;
+	private String telephone;
 	private String adresse;
+	@ManyToOne
+	@JoinColumn(name="CODE_ETUDIANT")
+	private Classe classe;
 
 	public Etudiant() {
 		super();
 	}
 
 	public Etudiant(String nom, String prenom, String nomDuPere, String nomDeLaMere, Date dateDeNaissance,
-			String lieuDeNaissance, long telephone, String adresse) {
+			String lieuDeNaissance, String telephone, String adresse, Classe classe) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -39,14 +44,23 @@ public class Etudiant implements Serializable {
 		this.lieuDeNaissance = lieuDeNaissance;
 		this.telephone = telephone;
 		this.adresse = adresse;
+		this.classe = classe;
 	}
 
-	public Long getId() {
-		return id;
+	public Classe getClasse() {
+		return classe;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
 	}
 
 	public String getNom() {
@@ -97,11 +111,11 @@ public class Etudiant implements Serializable {
 		this.lieuDeNaissance = lieuDeNaissance;
 	}
 
-	public long getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(long telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 

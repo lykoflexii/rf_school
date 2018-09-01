@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 @Entity
 public class Professeur implements Serializable {
 	@Id
@@ -12,18 +14,30 @@ public class Professeur implements Serializable {
 	private String prenom;
 	private String telephone;
 	private String adresse;
+	@ManyToOne
+	@JoinColumn(name="CODE_PROF")
+	private Cycle cycle;
 
 	public Professeur() {
 		super();
 	}
 
-	public Professeur(String matricule, String nom, String prenom, String telephone, String adresse) {
+	public Professeur(String matricule, String nom, String prenom, String telephone, String adresse, Cycle cycle) {
 		super();
 		this.matricule = matricule;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.telephone = telephone;
 		this.adresse = adresse;
+		this.cycle = cycle;
+	}
+
+	public Cycle getCycle() {
+		return cycle;
+	}
+
+	public void setCycle(Cycle cycle) {
+		this.cycle = cycle;
 	}
 
 	public String getMatricule() {
