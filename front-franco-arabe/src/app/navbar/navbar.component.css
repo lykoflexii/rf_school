@@ -18,20 +18,13 @@
   letter-spacing: 2px;
 }
 
-.navbar-dark .navbar-nav .active>.nav-link,
-.navbar-dark .navbar-nav .nav-link.active,
-.navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .show>.nav-link {
-  color: white;
-}
-
 .navbar-dark .navbar-nav .nav-link {
   color: white;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: blue;
+  color: gray;
 }
 
 .carousel-inner img {
@@ -54,7 +47,7 @@
 }
 
 .carousel-caption h1 {
-  font-size: 500%;
+  font-size: 400%;
   text-transform: uppercase;
   text-shadow: 1px 1px 20px #000;
 }
@@ -71,18 +64,17 @@
     padding: 2rem;
   }
 }
-
 @media (max-width: 768px) {
   .carousel-caption {
     top: 45%;
   }
 
   .carousel-caption h1 {
-    font-size: 350%
+    font-size: 200%
   }
 
   .carousel-caption h3 {
-    font-size: 140%;
+    font-size: 120%;
     font-weight: 400;
     padding-bottom: .2rem;
   }
@@ -90,13 +82,11 @@
   .display-4 {
     font-size: 200%;
   }
-
   .social a {
     font-size: 2.5em;
     padding: 1.2rem;
   }
 }
-
 @media (max-width: 576px) {
   .carousel-caption {
     top: 40%;
